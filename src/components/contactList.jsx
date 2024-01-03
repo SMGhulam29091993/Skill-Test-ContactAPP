@@ -1,14 +1,16 @@
+import { useCustomContextHook } from "../Context";
 import style from "./contact-list.module.css";
 
-const ContactList = ()=>{
+const ContactList = ({user})=>{
+    const {handleUpdateSubmit} = useCustomContextHook();
 
     return (
         <>
             <div className={style.listContainer}>
-                <p>Name</p>
-                <p>Email</p>
-                <p>Number</p>
-                <button>Edit</button>
+                <p>{user.name}</p>
+                <p>{user.email}</p>
+                <p>{user.phone}</p>
+                <button className={style.btn} onClick={()=>handleUpdateSubmit(user)}>Edit</button>
                 <button>Delete</button>
             </div>
         </>
