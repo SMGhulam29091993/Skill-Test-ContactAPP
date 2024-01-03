@@ -1,10 +1,14 @@
+import { ContactProvider } from "./Context";
 import ContactManager from "./components/contact";
 
 
 
 function App() {
   return (
-    <ContactManager/>
+    <ContactProvider>
+       <ContactManager/>
+    </ContactProvider>
+   
   )
     
 }

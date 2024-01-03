@@ -1,0 +1,42 @@
+.inputContainer{
+    border:1px solid blue;
+    padding: 1rem;
+    margin : 1rem auto;
+    width : 40vw;
+    height : 20vh;
+    display: flex;
+    flex-direction: column;
+}
+.inputFields{
+    margin-bottom: 12px;
+}
+.inputFields> label{
+   margin-right : 10px;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular';
+   font-weight: 700;
+   font-size: 0.9rem;
+}
+.inputFields>input{
+    width : 70%;
+    padding : 0.3rem;
+    letter-spacing: 0.05rem;
+    border: none;
+    outline: none;
+    background-color: antiquewhite;
+}
+.inputFields>input::placeholder{
+    font-weight: 700;
+    color :black;
+}
+.btn{
+    background-color:brown;
+    border: none;
+    outline: none;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.15rem;
+    font-weight: 500;
+    color: #fff; 
+    position: relative;
+    right: -15rem;
+}
