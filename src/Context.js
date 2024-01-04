@@ -18,29 +18,7 @@ export const ContactProvider = ({children})=>{
         setShowUpdateForm(false);
     }
 
-    // to show update contact form
-    const [showUpdateForm, setShowUpdateForm] = useState(false);
-    const [updateDetails,setUpdateDetails] = useState({})
-    const handleUpdateSubmit  = (user)=>{
-        // e.preventDefault();
-        setShowUpdateForm(true);
-        setShowAddForm(false);
-        setUpdateDetails(user)
-    };
    
-    const updateUser = async (id,newName,newEmail, newPhone)=>{
-        const Update = {name:newName, email : newEmail, phone : newPhone}
-        try{
-            await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, Update);
-            const updateContact = users.map(user=>
-                user.id === id?{...user, ...Update}:user
-            );
-            setUsers(updateContact);            
-        }catch(error){
-            console.log("Error in updating the contact : ",error);
-        }
-
-    }
 
 
     // to fetch the users and show it in the list 
@@ -74,11 +52,44 @@ export const ContactProvider = ({children})=>{
 ;        }catch(error){
             console.log("Error in adding contact : ", error);
         }
-    }
+    };
 
+     // to show update contact form
+    const [showUpdateForm, setShowUpdateForm] = useState(false);
+    const [updateDetails,setUpdateDetails] = useState({})
+    const handleUpdateSubmit  = (user)=>{
+        // e.preventDefault();
+        setShowUpdateForm(true);
+        setShowAddForm(false);
+        setUpdateDetails(user)
+    };
+   
+    const updateUser = async (id,newName,newEmail, newPhone)=>{
+        const Update = {name:newName, email : newEmail, phone : newPhone}
+        try{
+            await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, Update);
+            const updateContact = users.map(user=>
+                user.id === id?{...user, ...Update}:user
+            );
+            setUsers(updateContact);            
+        }catch(error){
+            console.log("Error in updating the contact : ",error);
+        }
+    };
+
+    // delete contact functionality
+    const Delete = async (id)=>{
+        try{
+            await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+            const filteredUsers = users.filter(user=>user.id !== id);
+            setUsers(filteredUsers);
+        }catch(error){
+            console.log("Error in Deleting Contact : ", error);
+        }
+    };
     const contactContextValue = {
         users,showAddForm,showUpdateForm,newContact,updateDetails,
-        setNewContact,handleUpdateSubmit,handleAddSubmit,addContact,updateUser,setShowUpdateForm
+        setNewContact,handleUpdateSubmit,handleAddSubmit,addContact,updateUser,setShowUpdateForm,Delete
     }
     return (
         <>

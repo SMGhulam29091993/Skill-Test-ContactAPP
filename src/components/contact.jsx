@@ -16,9 +16,12 @@ const ContactManager = ()=>{
                 :showUpdateForm?(<UpdateContact/>)
                 :(<div className={style.contactManager}>
                     <h1>Contact Manager</h1>
+                    <div className={style.contactDetail}>
                     {users.map((user,i)=>(
                         <ContactList key={i} user={user}/>
                     ))}
+                    </div>
+                    
                     
                 </div>)}
                 

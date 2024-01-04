@@ -1,8 +1,43 @@
+.listMain{
+    width:90%;
+}
 .listContainer{
     border:1px solid black;
-    width:90%;
     padding : 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: cadetblue;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    transition : 0.1s ease-in-out;
+}
+.listContainer:hover{
+    background-color: rgba(95, 158, 160, 0.678);
+    transform: scale(1.02);
+}
+.listContainer p{
+    margin-right: 10px;
+}
+.btn{
+    background-color:rgb(224, 137, 22);
+    border: none;
+    outline: none;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.15rem;
+    font-weight: 500;
+    color: #fff; 
+    cursor: pointer;
+}
+.del{
+    background-color:rgb(224, 69, 22);
+    border: none;
+    outline: none;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.15rem;
+    font-weight: 500;
+    color: #fff; 
+    cursor: pointer;
 }
